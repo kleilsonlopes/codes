@@ -1,0 +1,84 @@
+namespace SegundoProjeto
+{
+    class Program
+    {
+        static void Main()
+        {
+            // Entrada de Informações
+            Console.WriteLine("Pokémon 1: Nome, Tipo, Nível, EXP, Força do movimento");
+            string[] pokemon1 = Console.ReadLine().Split(' ');
+            Console.WriteLine("Pokémon 2: Nome, Tipo, Nível, EXP, Força do movimento");
+            string[] pokemon2 = Console.ReadLine().Split(' ');
+
+            // Atribuições dos vetores Pokémon 1
+            string pk1name = pokemon1[0];
+            string pk1type = pokemon1[1];
+            int pk1nivel = int.Parse(pokemon1[2]);
+            int pk1levelexp = int.Parse(pokemon1[3]);
+            int pk1power = int.Parse(pokemon1[4]);
+
+            // Atribuições dos vetores Pokémon 2
+            string pk2name = pokemon2[0];
+            string pk2type = pokemon2[1];
+            int pk2nivel = int.Parse(pokemon2[2]);
+            int pk2levelexp = int.Parse(pokemon2[3]);
+            int pk2power = int.Parse(pokemon2[4]);
+
+
+            //---------------------------------------
+            // Pontos de cada Pokémon
+            int pk1 = pk1nivel + pk1levelexp + pk1power; //Atacante
+            int pk2 = pk2nivel + pk2levelexp + pk2power; // Defensor
+
+            // Tipo de dado rolado 1d4 1d6 1d8
+            int rolld6 = 6; //dado de 1d6 para moves padrão
+            //int rolld4 = 4; //dado de 1d4 para moves variáveis
+            //int rolld8 = 8; //dado de 1d4 para moves críticos
+            //int rollred = 6; //dado de 1d6 vermelho para efeitos
+
+            //---------------------------------------
+
+            // Inicializa contadores de vitórias
+            //int vitoriasPessoa1 = 0;
+            //int vitoriasPessoa2 = 0;
+            //int empates = 0;
+
+            //// Simula jogadas
+            //int simulacoes = 1000000;
+            Random rand = new Random();
+            //for (int i = 0; i < simulacoes; i++)
+            //
+            //    // Jogada da pessoa 1
+            //    int jogadaPessoa1 = rand.Next(1, rolld6 + 1);
+            //    int roll1total = pk1 + jogadaPessoa1;
+
+            //    // Jogada da pessoa 2
+            //    int jogadaPessoa2 = rand.Next(1, rolld6 + 1);
+            //    int roll2total = pk2 + jogadaPessoa2;
+
+            //    // Verifica vencedor
+            //    if (roll1total > roll2total)
+            //        vitoriasPessoa1++;
+            //    else if (roll2total > roll1total)
+            //        vitoriasPessoa2++;
+            //    else
+            //        empates++;
+            //}
+
+            //// Cálcula probabilidade de vitória
+            //double chance1 = (double)vitoriasPessoa1 / simulacoes * 100;
+            //double chance2 = (double)vitoriasPessoa2 / simulacoes * 100;
+            //double empate = (double)empates / simulacoes * 100;
+            //Console.WriteLine($"Chance de vitória: {chance1:F0}%");
+            //Console.WriteLine($"Chance de derrota: {chance2:F0}%");
+            //Console.WriteLine($"Chance de empate: {empate:F0}%.");
+           
+            int rolled1 = rand.Next(1, rolld6 + 1);
+            int rolled2 = rand.Next(1, rolld6 + 1);
+            // Exibe resultado
+            Console.WriteLine(pk1name + "/" + pk1type + " " + pk1 + " "+ rolled1+ "= " + (rolled1+ pk1));
+            Console.WriteLine(pk2name + "/" + pk2type + " " + pk2 + " "+ rolled2+ "= " + (rolled2 + pk2));
+
+        }
+    }
+}
